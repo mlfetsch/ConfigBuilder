@@ -1,0 +1,48 @@
+!
+! Cisco IOS Configuration
+!
+hostname {{ hostname }}
+!
+!
+aaa new-model
+!
+aaa authentication login default group {{ aaamethod }} local-case
+aaa authentication enable default group {{ aaamethod }}
+aaa authorization console
+aaa authorization exec default group {{ aaamethod }} local if-authenticated 
+!
+!
+user {{ user1 }} priv 15 secret {{ secretpw }}
+!
+interface Loopback0
+ description Management Interface
+ ip address {{ management_ip }} 255.255.255.255
+!
+interface {{ interface01 }}
+ ip address {{ interface01ip }} {{ interface01mask }}
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+!
+interface {{ interface02 }}
+ ip address {{ interface02ip }} {{ interface02mask }}
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+!
+
+router eigrp {{ routinginstance }}
+network {{ advnetwork1 }}
+network {{ advnetwork2 }}
+!
+!
+ip route 0.0.0.0 0.0.0.0 {{ defaultroutedst }}
+!
+!
+line con 0
+line vty 0 15
+transport input {{ transportinput }}
+!
+!
+ntp source Loopback0
+ntp server {{ ntpserver01 }}

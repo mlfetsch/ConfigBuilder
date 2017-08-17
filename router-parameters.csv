@@ -1,0 +1,4 @@
+hostname;user1;secretpw;management_ip;interface01;interface01ip;interface01mask;aamethod;routinginstance;advnetwork1;advnetwork2;ntpserver01;transportinput;defaultroutedst;interface02;interface02ip;interface02mask
+router1;admin1;secret!;10.100.100.1;Gi0/1;172.16.1.1;255.255.255.0;radius;100;1.1.1.0;2.2.2.0;8.8.8.8;all;172.17.1.1;Gi0/0;172.17.1.1;255.255.255.0
+router2;admin2;secrets!;10.100.100.2;Gi0/1;172.16.2.1;255.255.255.0;radius;100;3.3.3.3;#REMOVE#;8.8.8.8;none;98.16.2.43;##REMOVE##;##REMOVE##;##REMOVE##
+router3;admin3;secret1!;10.100.100.3;Gi0/0;172.16.3.1;255.255.255.0;tac-acs;100;4.4.4.4;#REMOVE#;172.16.3.2;ssh;172.17.2.1;Gi0/2;172.19.1.1;255.255.255.0
